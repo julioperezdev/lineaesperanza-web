@@ -14,7 +14,7 @@ export default function Contact() {
                 <Image src="/gmailLogo.png" alt={'Logo de Gmail'} width={100} height={100} />
                 <div>
                     <a href="mailto:oxigenovenezuela@gmail.com">oxigenovenezuela@gmail.com</a>
-                    <a href="mailto:maria.alejandra.perez.viloria@gmail.com">maria.alejandra.perez.viloria@gmail.com</a>
+                    <a href="mailto:lineaesperanza@gmail.com">lineaesperanza@gmail.com</a>
                 </div>
             </div>
         </div>
