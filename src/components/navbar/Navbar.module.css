@@ -1,0 +1,27 @@
+.navbarBase{
+    display: grid;
+    /* background-color: rgb(149, 183, 165); */
+    background-color: rgb(238, 255, 243);
+    justify-content: center;
+    grid-template-columns: 30% 40% 30%;
+    align-items: center;
+    color: rgb(69, 69, 69);
+    
+}
+
+
+.navbarBase > img {
+    justify-self: center;
+    margin: 20px;
+}
+
+.navbarBase > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));;
+    
+}
+
+.navbarBase > div > a {
+    margin: auto 20px;
+    font-size: 20px;
+}

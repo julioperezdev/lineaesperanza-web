@@ -1,0 +1,156 @@
+.formComponent{
+    width: 80%;
+    display: grid;
+    justify-items: center;
+    margin: 30px auto;
+}
+
+.formComponent > h1 {
+    width: 80%;
+    text-align: center;
+}
+
+.formComponent > p {
+    margin: 30px auto;
+    width: 60%;
+    line-height: 1.8;
+}
+
+.formBase {
+    background-color: rgb(245, 254, 246);
+    border: 2px solid rgb(234, 240, 231);
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(226, 255, 225);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* gap: 1rem;
+    grid-auto-rows: 9rem;
+    grid-auto-flow: dense;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); */
+}
+
+.formBase > input{
+    width: 200px;
+    margin: auto;
+    height: 40px;
+    border-radius: 30px;
+}
+.formBase > div {
+    display: grid;
+}
+.principalFields{
+    grid-template-columns: repeat(2, 50%);
+    margin: 30px;
+}
+
+.requiredFields{
+    display: grid;
+}
+.requiredFields > input{
+    width: 80%;
+    height: 30px;
+    /* background-color: transparent;
+    border: 0px solid transparent;
+    border-bottom: 2px solid rgb(212, 212, 212); */
+    outline: none;
+    margin: 4px auto;
+    border-radius: 20px;
+    border: 2px solid rgb(170, 201, 170);
+    padding: 3px;
+    text-align: center;
+    box-shadow: 4px 4px 4px rgb(210, 232, 207);
+    font-size: 16px;
+}
+
+.principalOptionalFields > div > input{
+    /* background-color: transparent;
+    border: 0px solid transparent;
+    border-bottom: 2px solid rgb(212, 212, 212); */
+    outline: none;
+    margin: 4px 5px;
+    height: 30px;
+    margin: 4px auto;
+    border-radius: 20px;
+    border: 2px solid rgb(170, 201, 170);
+    padding: 3px;
+    box-shadow: 4px 4px 4px rgb(210, 232, 207);
+    width: 40%;
+    text-align: center;
+    font-size: 16px;
+}
+
+.genderBase{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    border-radius: 20px;
+    border: 2px solid rgb(170, 201, 170);
+    padding: 3px;
+    box-shadow: 4px 4px 4px rgb(210, 232, 207);
+    margin: 4px auto;
+    height: 30px;
+    width: 80%;
+    align-items: center;
+}
+
+.genderBase> p:hover{
+    background-color: rgb(206, 232, 209);
+    border-radius: 20px;
+    border: 2px solid rgb(170, 201, 170);
+}
+
+.countriesList{
+    font-size: 15px;
+    width:80%;
+    height: 30px;
+    margin-top: 10px;
+    background-color: transparent;
+    border: 0px solid transparent;
+    outline: none;
+    
+}
+
+.countriesList > option{
+    background-color: transparent;
+    border: 0px solid transparent;
+    outline: none;
+}
+
+.textAreaBase > div{
+    display: grid;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.textAreaBase > div > textarea{
+    resize: none;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid rgb(170, 201, 170);
+    padding: 10px;
+    box-shadow: 4px 4px 4px rgb(210, 232, 207);
+    margin: 4px auto;
+    height: 80px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.textAreaBase > div > p{
+    font-size: 20px;
+    line-height: 1.8;
+    font-weight: 600;
+}
+
+
+.submitButton{
+    display: grid;
+    background-color: aliceblue;
+    border-radius: 20px;
+    border: 4px solid rgb(170, 201, 170);
+    padding: 10px;
+    box-shadow: 4px 4px 4px rgb(210, 232, 207);
+    font-size: 20px;
+    margin: 20px auto;
+    width: 50%;
+}

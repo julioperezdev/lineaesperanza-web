@@ -1,4 +1,21 @@
-:root {
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  background-color: rgb(238, 255, 243);
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* :root {
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -74,6 +91,7 @@
 }
 
 * {
+  background-color: rgb(238, 255, 243);
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -104,4 +122,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} */

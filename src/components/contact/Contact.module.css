@@ -1,0 +1,32 @@
+.contactBase{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 20px;
+    background-color: rgb(223, 255, 223);
+    box-shadow: 10px 10px 10px rgb(227, 251, 212);
+    width: 80%;
+    justify-items: center;
+    margin: auto;
+}
+.contactBase > div {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+}
+
+.contactBase > div > div{
+    display: grid;
+    grid-template-columns: 1fr;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.contactBase > div > div > a{
+    font-size: 20px;
+    font-weight: 800;
+    margin: 10px;
+    color: rgb(88, 88, 88);
+}

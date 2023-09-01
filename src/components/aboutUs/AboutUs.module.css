@@ -1,0 +1,48 @@
+.aboutUsBase{
+    width: 80%;
+    display: grid;
+    margin: 50px auto;
+}
+
+.aboutUsBase > div{
+    display: grid;
+    grid-template-columns: 15% 85%;
+    margin: 10px 0;
+    color: rgb(116, 116, 116);
+    background-color: rgb(246, 255, 241);
+    box-shadow: 10px 10px 10px rgb(233, 233, 233);
+}
+
+.aboutUsBase > div > p{
+    display: grid;
+    border: 5px solid rgb(207, 223, 136);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 220px;
+    width: 100%;
+    font-size: 28px;
+    text-align: center;
+    align-content: center;
+    font-weight: 600;
+
+
+}
+.aboutUsBase > div > div{
+    display: grid;
+    align-content: center;
+    border: 5px solid rgb(207, 223, 136);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 100px;
+    padding: 60px;
+    font-size: 19px;
+    line-height: 1.5;
+    
+}
+
+.objects{
+    /* height: 100px;
+    padding: 50px;
+    font-size: 20px; */
+    line-height: 1.5;
+}
