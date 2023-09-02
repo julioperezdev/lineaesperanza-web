@@ -1,12 +1,12 @@
 .aboutUsBase{
-    width: 80%;
+    width: 90%;
     display: grid;
-    margin: 50px auto;
+    margin: 30px auto;
 }
 
 .aboutUsBase > div{
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 1fr;
     margin: 10px 0;
     color: rgb(116, 116, 116);
     background-color: rgb(246, 255, 241);
@@ -17,10 +17,10 @@
     display: grid;
     border: 5px solid rgb(207, 223, 136);
     border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    height: 220px;
-    width: 100%;
-    font-size: 28px;
+    border-top-right-radius: 10px;
+    height: 60px;
+    width: 97%;
+    font-size: 18px;
     text-align: center;
     align-content: center;
     font-weight: 600;
@@ -31,18 +31,60 @@
     display: grid;
     align-content: center;
     border: 5px solid rgb(207, 223, 136);
-    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    height: 100px;
-    padding: 60px;
-    font-size: 19px;
+    max-height: 500px;
+    
+    padding: 10px;
+    font-size: 13px;
     line-height: 1.5;
     
 }
 
 .objects{
-    /* height: 100px;
-    padding: 50px;
-    font-size: 20px; */
     line-height: 1.5;
 }
+
+@media only screen and (min-width: 480px) {
+    
+    .aboutUsBase > div > p{
+        width: 98.5%;
+        font-size: 20px;
+    }
+    .aboutUsBase > div > div{
+        font-size: 15px;
+        line-height: 1.8;
+    }
+    
+    .objects > div > p{
+        margin-bottom: 20px;
+        
+    }
+}
+@media only screen and (min-width: 768px) {
+    .aboutUsBase > div{
+        grid-template-columns: 20% 80%;
+    }
+
+    .aboutUsBase > div > p{
+        width: 100%;
+        font-size: 20px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        height: auto;
+    }
+    .aboutUsBase > div > div{
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .aboutUsBase > div > p{
+        font-size: 25px;
+    }
+
+    .aboutUsBase > div > div{
+        font-size: 19px;
+    }
+}
+@media only screen and (min-width: 1200px) {}

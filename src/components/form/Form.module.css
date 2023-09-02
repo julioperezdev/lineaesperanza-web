@@ -1,19 +1,19 @@
 .formComponent{
-    width: 80%;
+    width: 90%;
     display: grid;
     justify-items: center;
-    margin: 30px auto;
+    margin: 20px auto;
 }
 
 .formComponent > h1 {
-    width: 80%;
+    width: 90%;
     text-align: center;
 }
 
 .formComponent > p {
     margin: 30px auto;
-    width: 60%;
-    line-height: 1.8;
+    width: 80%;
+    line-height: 1.6;
 }
 
 .formBase {
@@ -38,15 +38,15 @@
     display: grid;
 }
 .principalFields{
-    grid-template-columns: repeat(2, 50%);
-    margin: 30px;
+    grid-template-columns: 1fr;
+    margin: 20px;
 }
 
 .requiredFields{
     display: grid;
 }
 .requiredFields > input{
-    width: 80%;
+    width: 100%;
     height: 30px;
     outline: none;
     margin: 4px auto;
@@ -68,7 +68,7 @@
     border: 2px solid rgb(170, 201, 170);
     padding: 3px;
     box-shadow: 4px 4px 4px rgb(210, 232, 207);
-    width: 40%;
+    width: 100%;
     text-align: center;
     font-size: 16px;
     background-color: rgb(249, 255, 250);
@@ -83,7 +83,7 @@
     box-shadow: 4px 4px 4px rgb(210, 232, 207);
     margin: 4px auto;
     height: 30px;
-    width: 80%;
+    width: 100%;
     align-items: center;
     background-color: rgb(249, 255, 250);
 }
@@ -96,7 +96,7 @@
 
 .countriesList{
     font-size: 15px;
-    width:80%;
+    width:100%;
     height: 38px;
     padding: 3px 10px;
     margin-top: 10px;
@@ -135,8 +135,8 @@
 }
 
 .textAreaBase > div > p{
-    font-size: 20px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.4;
     font-weight: 600;
 }
 
@@ -172,4 +172,133 @@
     background-color: rgb(153, 213, 160) !important;
     border-radius: 20px;
     border: 2px solid rgb(170, 201, 170);
+}
+
+@media only screen and (min-width: 480px) {
+    .formComponent{
+        width: 90%;
+        display: grid;
+        justify-items: center;
+        margin: 20px auto;
+    }
+    
+    .formComponent > h1 {
+        width: 90%;
+        text-align: center;
+    }
+    
+    .formComponent > p {
+        margin: 30px auto;
+        width: 80%;
+        line-height: 1.6;
+    }
+
+    .principalFields{
+        grid-template-columns: 1fr;
+        margin: 30px;
+    }
+
+    .requiredFields > input{
+        width: 80%;
+    }
+    .principalOptionalFields > div > input{
+        width: 40%;
+    }
+
+    .genderBase{
+        width: 80%;
+    }
+
+    .countriesList{
+        width:80%;   
+    }
+
+    .textAreaBase > div > textarea{
+        font-size: 16px;
+    }
+    
+    .textAreaBase > div > p{
+        font-size: 20px;
+        line-height: 1.8;
+        font-weight: 600;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .formComponent{
+        width: 90%;
+    }
+    
+    .formComponent > h1 {
+        width: 90%;
+    }
+    
+    .formComponent > p {
+        line-height: 1.8;
+    }
+
+    .principalFields{
+        grid-template-columns: repeat(2, 50%);
+        margin: 30px;
+    }
+
+    .requiredFields > input{
+        width: 90%;
+    }
+    .principalOptionalFields > div > input{
+        width: 44%;
+    }
+
+    .genderBase{
+        width: 90%;
+    }
+
+    .countriesList{
+        width:90%;   
+    }
+
+    .textAreaBase > div > textarea{
+        font-size: 16px;
+    }
+    
+    .textAreaBase > div > p{
+        font-size: 20px;
+        line-height: 1.8;
+        font-weight: 600;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .formComponent{
+        width: 80%;
+    }
+    
+    .formComponent > h1 {
+        width: 80%;
+    }
+
+    .requiredFields > input{
+        width: 80%;
+    }
+    .principalOptionalFields > div > input{
+        width: 40%;
+    }
+
+    .genderBase{
+        width: 80%;
+    }
+
+    .countriesList{
+        width:80%;   
+    }
+
+    .textAreaBase > div > textarea{
+        font-size: 16px;
+    }
+    
+    .textAreaBase > div > p{
+        font-size: 20px;
+        line-height: 1.8;
+        font-weight: 600;
+    }
+}
+@media only screen and (min-width: 1200px) {
 }

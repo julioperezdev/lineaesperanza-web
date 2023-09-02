@@ -1,17 +1,18 @@
 .contactBase{
     display: grid;
-    grid-template-columns: repeat(2,50%);
+    grid-template-columns: 1fr;
     border: 1px solid rgb(233, 233, 233);
     border-radius: 20px;
     background-color: rgb(223, 255, 223);
     box-shadow: 10px 10px 10px rgb(227, 251, 212);
-    width: 80%;
+    width: 90%;
     justify-items: center;
     margin: auto;
 }
 .contactBase > div {
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 15% 80%;
+    justify-content: center;
     width: 100%;
     justify-items: center;
     align-items: center;
@@ -20,13 +21,66 @@
 .contactBase > div > div{
     display: grid;
     grid-template-columns: 1fr;
-    font-size: 20px;
     font-weight: 800;
 }
 
+.contactBase > div > img{
+    width: 35px;
+    height: 35px;
+}
+
 .contactBase > div > div > a{
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 800;
     margin: 10px;
     color: rgb(88, 88, 88);
 }
+
+@media only screen and (min-width: 480px) {
+    .contactBase > div {
+        grid-template-columns: 20% 80%;
+        justify-content: center;
+        width: 100%;
+        justify-items: center;
+        align-items: center;
+    }
+    .contactBase > div > img{
+        width: 55px;
+        height: 55px;
+    }
+
+    .contactBase > div > div > a{
+        font-size: 20px;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .contactBase{
+        grid-template-columns: repeat(2,50%);
+    }
+    .contactBase > div {
+        grid-template-columns: 15% 80%;
+    }
+
+    .contactBase > div > img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .contactBase > div > div > a{
+        font-size: 16px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .contactBase > div {
+        grid-template-columns: 20% 80%;
+    }
+
+    .contactBase > div > img{
+        width: 100px;
+        height: 100px;
+    }
+    .contactBase > div > div > a{
+        font-size: 20px;
+    }
+}
+@media only screen and (min-width: 1200px) {}

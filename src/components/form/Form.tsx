@@ -79,8 +79,8 @@ export default function Form() {
               <p className={gender == 'Femenino' ? styles.genderSelected : styles.baseGender} onClick={() => setGender('Femenino')}>femenino</p>
             </div>
             <div>
-              <input type="text" pattern="[0-9]{0,5}" placeholder='Cod. Area' {...register("phoneAreaCode")} />
-              <input type="text" pattern="[0-9]{0,15}" placeholder='Telefono celular' {...register("phoneNumber")} />
+              <input type="text" pattern="[0-9]{0,5}" placeholder='Cod. Área' {...register("phoneAreaCode")} />
+              <input type="text" pattern="[0-9]{0,15}" placeholder='Teléfono celular' {...register("phoneNumber")} />
             </div>
             <div>
               <select className={styles.countriesList} {...register("country")}>

@@ -1,27 +1,50 @@
 .navbarBase{
     display: grid;
-    /* background-color: rgb(149, 183, 165); */
     background-color: rgb(238, 255, 243);
     justify-content: center;
-    grid-template-columns: 30% 40% 30%;
+    grid-template-columns: 30% 5% 65%;
     align-items: center;
     color: rgb(69, 69, 69);
     
 }
 
-
 .navbarBase > img {
     justify-self: center;
     margin: 20px;
+    width: 100px;
+    height: 100px;
 }
 
 .navbarBase > div {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));;
-    
+    grid-template-columns: 40% 30% 20%;
 }
 
 .navbarBase > div > a {
-    margin: auto 20px;
-    font-size: 20px;
+    margin: auto;
+    font-size: 14px;
+}
+
+
+@media only screen and (min-width: 480px) {
+    .navbarBase{
+        grid-template-columns: 30% 25% 45%;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .navbarBase{
+        grid-template-columns: 30% 35% 35%;
+    }
+
+    .navbarBase > img {
+        width: 125px;
+        height: 125px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .navbarBase{
+        grid-template-columns: 30% 45% 25%;
+    }
+}
+@media only screen and (min-width: 1200px) {
 }
