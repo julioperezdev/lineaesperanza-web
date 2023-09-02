@@ -37,8 +37,6 @@ export default function Form() {
       country: updateCharacterIfEmptyString(data.country),
       motive: updateCharacterIfEmptyString(data.motive),
       habits: updateCharacterIfEmptyString(data.habits),
-      example: "",
-      exampleRequired: ""
     }
     return newFormData;
   }

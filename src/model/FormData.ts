@@ -1,6 +1,4 @@
 export type FormData = {
-    example: string,
-    exampleRequired: string,
     name: string,
     gender: string,
     age: string, 
