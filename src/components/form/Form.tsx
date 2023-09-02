@@ -1,58 +1,86 @@
 'use client'
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { FormData } from "@/model/FormData";
 import { countryList } from "./CountryList"
 import styles from './Form.module.css'
 import { useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 export default function Form() {
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<FormData>();
-  const onSubmit: SubmitHandler<FormData> = data => console.log(data);
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>();
   const [gender, setGender] = useState<string | null>(null);
 
-  function selectGender(gender: string) {
-
+  async function sendForm(data: FormData) {
+    try {
+      return await fetch('/api/form', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+    } catch (error: any) {
+      throw new Error(error.message)
+    }
   }
-  async function onSubmitFunctionality(e: Event) {
-    e.preventDefault();
-    //se debe obtener el objeto del formulario
-    //se envia al servidor
-    const response = await fetch('http://localhost:3001/api/form', {
-      method: 'POST',
-      body: JSON.stringify({}),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    console.log(response);
-
-    //validar que da OK
-    //si es OK, mostrar algun popup o alternativa interesante
+  function converFormData(data:FormData): FormData{
+    data.name = updateCharacterIfEmptyString(data.name);
+    let newFormData : FormData = {
+      name: updateCharacterIfEmptyString(data.name),
+      email: updateCharacterIfEmptyString(data.email),
+      age: updateCharacterIfEmptyString(data.age),
+      gender: updateCharacterIfEmptyString(gender!),
+      phoneAreaCode: updateCharacterIfEmptyString(data.phoneAreaCode),
+      phoneNumber: updateCharacterIfEmptyString(data.phoneNumber),
+      country: updateCharacterIfEmptyString(data.country),
+      motive: updateCharacterIfEmptyString(data.motive),
+      habits: updateCharacterIfEmptyString(data.habits),
+      example: "",
+      exampleRequired: ""
+    }
+    return newFormData;
   }
+  function updateCharacterIfEmptyString(value:string):string{
+    return value === null || value.length === 0 || value.trim().length === 0 ? "-" : value;
+  }
+  const onSubmit = handleSubmit(async (data) => {
+    const dataValidated = converFormData(data);
+    const response = await sendForm(dataValidated);
+      if(response.ok) {
+      reset();
+      toast.success('¡Nos comunicaremos con usted lo antes posible!')
+    }else {
+      toast.error('Ops... vuelve enviar el formulario mas tarde')
+    }
+  });
+
+
 
   return (
     <div className={styles.formComponent}>
+      <Toaster />
       <h1>Formulario para obtener consulta psicológica</h1>
       <p>¡Queremos escucharte y ayudarte, <strong>hablando tu mismo lenguaje</strong> de manera online con servicio terapéutico de calidad!</p>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.formBase}>
+      <form onSubmit={onSubmit} className={styles.formBase}>
         <div className={styles.principalFields}>
           <div className={styles.requiredFields}>
             <input type="text" placeholder='nombre' {...register("name", { required: true, pattern: /^[A-Za-z]+$/i })} />
-            {errors.exampleRequired && <span>This field is required</span>}
-            <input type="email" placeholder='email' {...register("email")} />
-            {errors.exampleRequired && <span>This field is required</span>}
-            <input type="text" placeholder='edad' {...register("age", { required: true, pattern: /^[0-9]{1,3}/i })} />
+            {errors.name && <span>Es necesario el nombre</span>}
+            <input type="email" placeholder='email' {...register("email", { required: true, pattern: /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/i })} />
+            {errors.email && <span>Tu email es necesario para comunicarnos</span>}
+            <input type="text" placeholder='edad' {...register("age", { required: true, minLength:1, maxLength:3 ,pattern: /^[0-9]/i })} />
+            {errors.age && <span>Incluir la edad con un máximo de 3 dígitos</span>}
           </div>
           <div className={styles.principalOptionalFields}>
             <div className={styles.genderBase}>
-              <p onClick={() => setGender('M')}>masculino</p>
-              <p onClick={() => setGender('F')}>femenino</p>
+              <p className={gender == 'Masculino' ? styles.genderSelected : styles.baseGender} onClick={() => setGender('Masculino')}>masculino</p>
+              <p className={gender == 'Femenino' ? styles.genderSelected : styles.baseGender} onClick={() => setGender('Femenino')}>femenino</p>
             </div>
             <div>
-              <input type="text" pattern="[0-9]{1,5}" placeholder='Cod. Area' {...register("phoneAreaCode")} />
-              <input type="text" pattern="[0-9]{1,5}" placeholder='Telefono celular' {...register("phoneNumber")} />
+              <input type="text" pattern="[0-9]" placeholder='Cod. Area' {...register("phoneAreaCode")} />
+              <input type="text" pattern="[0-9]" placeholder='Telefono celular' {...register("phoneNumber")} />
             </div>
             <div>
               <select className={styles.countriesList} {...register("country")}>
@@ -73,7 +101,7 @@ export default function Form() {
             <textarea placeholder='Ejemplo: Alimentación, Sueño, Aseo personal, Concentración, Vitalidad'{...register("habits")} />
           </div>
         </div>
-        <button type="submit" className={styles.submitButton} >ENVIAR</button>
+        <button id="formSubmit" type="submit" className={styles.submitButton} >ENVIAR</button>
       </form>
     </div>
   )

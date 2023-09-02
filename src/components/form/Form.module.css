@@ -25,10 +25,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* gap: 1rem;
-    grid-auto-rows: 9rem;
-    grid-auto-flow: dense;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); */
+    color: rgb(85, 85, 85);
 }
 
 .formBase > input{
@@ -51,9 +48,6 @@
 .requiredFields > input{
     width: 80%;
     height: 30px;
-    /* background-color: transparent;
-    border: 0px solid transparent;
-    border-bottom: 2px solid rgb(212, 212, 212); */
     outline: none;
     margin: 4px auto;
     border-radius: 20px;
@@ -62,12 +56,10 @@
     text-align: center;
     box-shadow: 4px 4px 4px rgb(210, 232, 207);
     font-size: 16px;
+    background-color: rgb(249, 255, 250);
 }
 
 .principalOptionalFields > div > input{
-    /* background-color: transparent;
-    border: 0px solid transparent;
-    border-bottom: 2px solid rgb(212, 212, 212); */
     outline: none;
     margin: 4px 5px;
     height: 30px;
@@ -79,6 +71,7 @@
     width: 40%;
     text-align: center;
     font-size: 16px;
+    background-color: rgb(249, 255, 250);
 }
 
 .genderBase{
@@ -92,10 +85,11 @@
     height: 30px;
     width: 80%;
     align-items: center;
+    background-color: rgb(249, 255, 250);
 }
 
 .genderBase> p:hover{
-    background-color: rgb(206, 232, 209);
+    background-color: rgb(220, 236, 222);
     border-radius: 20px;
     border: 2px solid rgb(170, 201, 170);
 }
@@ -103,17 +97,21 @@
 .countriesList{
     font-size: 15px;
     width:80%;
-    height: 30px;
+    height: 38px;
+    padding: 3px 10px;
     margin-top: 10px;
-    background-color: transparent;
-    border: 0px solid transparent;
+    background-color: rgb(249, 255, 250);
     outline: none;
+    border-radius: 20px;
+    border: 2px solid rgb(170, 201, 170);
+    font-size: 20px;
+    color: rgb(128, 128, 128);
     
 }
 
 .countriesList > option{
     background-color: transparent;
-    border: 0px solid transparent;
+    border: 1px solid transparent;
     outline: none;
 }
 
@@ -153,4 +151,25 @@
     font-size: 20px;
     margin: 20px auto;
     width: 50%;
+    color: rgb(96, 96, 96);
+    font-weight: 700;
+}
+
+.submitButton:active{
+    background-color: rgb(225, 255, 234);
+    border-radius: 20px;
+    border: 4px solid rgb(170, 201, 170);
+}
+
+
+.genderSelected{
+    background-color: rgb(153, 213, 160);
+    border-radius: 20px;
+    border: 2px solid rgb(170, 201, 170);
+}
+
+.genderSelected:hover{
+    background-color: rgb(153, 213, 160) !important;
+    border-radius: 20px;
+    border: 2px solid rgb(170, 201, 170);
 }
