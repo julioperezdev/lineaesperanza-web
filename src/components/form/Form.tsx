@@ -66,7 +66,7 @@ export default function Form() {
       <form onSubmit={onSubmit} className={styles.formBase}>
         <div className={styles.principalFields}>
           <div className={styles.requiredFields}>
-            <input type="text" placeholder='nombre' {...register("name", { required: true, pattern: /^[A-Za-z]+$/i })} />
+            <input type="text" placeholder='nombre' {...register("name", { required: true, pattern: /^[A-Za-z ]+$/i })} />
             {errors.name && <span>Es necesario el nombre</span>}
             <input type="email" placeholder='email' {...register("email", { required: true, pattern: /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/i })} />
             {errors.email && <span>Tu email es necesario para comunicarnos</span>}
