@@ -25,9 +25,9 @@ export default function Form() {
       throw new Error(error.message)
     }
   }
-  function converFormData(data:FormData): FormData{
+  function converFormData(data: FormData): FormData {
     data.name = updateCharacterIfEmptyString(data.name);
-    let newFormData : FormData = {
+    let newFormData: FormData = {
       name: updateCharacterIfEmptyString(data.name),
       email: updateCharacterIfEmptyString(data.email),
       age: updateCharacterIfEmptyString(data.age),
@@ -40,41 +40,39 @@ export default function Form() {
     }
     return newFormData;
   }
-  function updateCharacterIfEmptyString(value:string):string{
+  function updateCharacterIfEmptyString(value: string): string {
     return value === null || value.length === 0 || value.trim().length === 0 ? "-" : value;
   }
   const onSubmit = handleSubmit(async (data) => {
     const dataValidated = converFormData(data);
     const response = await sendForm(dataValidated);
-      if(response.ok) {
+    if (response.ok) {
       reset();
       toast.success('¡Nos comunicaremos con usted lo antes posible!')
-    }else {
+    } else {
       toast.error('Ops... vuelve enviar el formulario mas tarde')
     }
   });
 
-
-
   return (
     <div className={styles.formComponent}>
       <Toaster />
-      <h1>Formulario para obtener consulta psicológica</h1>
-      <p>¡Queremos escucharte y ayudarte, <strong>hablando tu mismo lenguaje</strong> de manera online con servicio terapéutico de calidad!</p>
+      <h1>Formulario de atención psicológica gratuita</h1>
+      <p>¡Somos Psicólogos/as cristianos/as y queremos escucharte, <strong>hablando tu mismo lenguaje</strong> de manera online!</p>
       <form onSubmit={onSubmit} className={styles.formBase}>
         <div className={styles.principalFields}>
           <div className={styles.requiredFields}>
-            <input type="text" placeholder='nombre' {...register("name", { required: true, pattern: /^[A-Za-z ]+$/i })} />
+            <input type="text" placeholder='Nombre' {...register("name", { required: true, pattern: /^[A-Za-z ]+$/i })} />
             {errors.name && <span>Es necesario el nombre</span>}
-            <input type="email" placeholder='email' {...register("email", { required: true, pattern: /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/i })} />
+            <input type="email" placeholder='Email' {...register("email", { required: true, pattern: /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/i })} />
             {errors.email && <span>Tu email es necesario para comunicarnos</span>}
-            <input type="text" placeholder='edad' {...register("age", { required: true, minLength:1, maxLength:3 ,pattern: /^[0-9]/i })} />
+            <input type="text" placeholder='Edad' {...register("age", { required: true, minLength: 1, maxLength: 3, pattern: /^[0-9]/i })} />
             {errors.age && <span>Incluir la edad con un máximo de 3 dígitos</span>}
           </div>
           <div className={styles.principalOptionalFields}>
             <div className={styles.genderBase}>
-              <p className={gender == 'Masculino' ? styles.genderSelected : styles.baseGender} onClick={() => setGender('Masculino')}>masculino</p>
-              <p className={gender == 'Femenino' ? styles.genderSelected : styles.baseGender} onClick={() => setGender('Femenino')}>femenino</p>
+              <p className={gender == 'Masculino' ? styles.genderSelected : styles.baseGender} onClick={() => setGender('Masculino')}>Masculino</p>
+              <p className={gender == 'Femenino' ? styles.genderSelected : styles.baseGender} onClick={() => setGender('Femenino')}>Femenino</p>
             </div>
             <div>
               <input type="text" pattern="[0-9]{0,5}" placeholder='Cod. Área' {...register("phoneAreaCode")} />
@@ -83,7 +81,11 @@ export default function Form() {
             <div>
               <select className={styles.countriesList} {...register("country")}>
                 {countryList.map(country => (
-                  <option value={country.name} key={country.name}>{country.name + country.emoji}</option>
+                  <option
+                    value={country.name}
+                    key={country.name}>
+                    {country.name}
+                  </option>
                 ))}
               </select>
             </div>
@@ -91,8 +93,8 @@ export default function Form() {
         </div>
         <div className={styles.textAreaBase}>
           <div>
-            <p>¿Cúal es el motivo de su consulta?</p>
-            <textarea placeholder='motivo de consulta' {...register("motive")} />
+            <p>¿Cuál es el motivo de su consulta?</p>
+            <textarea placeholder='Motivo de consulta' {...register("motive")} />
           </div>
           <div>
             <p> Describe cómo te sientes emocionalmente y los cambios importantes en los hábitos personales que has notado recientemente</p>
